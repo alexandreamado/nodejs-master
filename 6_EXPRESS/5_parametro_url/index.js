@@ -11,7 +11,6 @@ app.get('/users/:id', (req, res) => {
     
     //leitura da tabela users, registrar um usuario do banco
     console.log(`Estamos buscando pelo usuario: ${id}`)
-
     res.sendFile(`${basePath}/users.html`);
 }); 
 

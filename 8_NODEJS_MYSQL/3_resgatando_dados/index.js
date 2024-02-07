@@ -34,7 +34,26 @@ app.post('/books/insertbook', function (req, res) {
 
     res.redirect('/')
   })
+}) 
+
+app.get("/books", (req, res) => {
+  const sql = "SELECT * FROM books"
+
+  conn.query(sql, (err, data) => {
+    if(err){
+      console.log(err)
+      return
+    }
+    const books = data;
+    console.log(books); 
+
+    res.render('books', {books})
+  })
 })
+
+
+
+
 
 const conn = mysql.createConnection({
   host: 'localhost',
